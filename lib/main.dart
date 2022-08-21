@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_app/views/screens/layout.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -11,15 +12,8 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Web App',
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Web App',
-          ),
-        ),
-      ),
-    );
+        title: 'Flutter Web App',
+        debugShowCheckedModeBanner: false,
+        home: Layout());
   }
 }
