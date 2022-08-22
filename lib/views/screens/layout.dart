@@ -12,7 +12,9 @@ class Layout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: topNavigationBar(context: context, key: _scaffoldKey),
+      drawer: Drawer(),
       body: Responsive(
         largeScreen: LargeScreen(),
         smallScreen: SmallScreen(),
