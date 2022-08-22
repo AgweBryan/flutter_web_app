@@ -99,7 +99,8 @@ AppBar topNavigationBar(
               borderRadius: BorderRadius.circular(30),
             ),
             child: Container(
-              padding: EdgeInsets.all(4),
+              padding: EdgeInsets.all(2),
+              margin: EdgeInsets.all(2),
               child: CircleAvatar(
                 backgroundColor: light,
                 child: Icon(
