@@ -14,26 +14,30 @@ class Responsive extends StatelessWidget {
       required this.smallScreen})
       : super(key: key);
 
-  static bool isSmallScreen(double width) => width < smallScreenSize;
+  static bool isSmallScreen(BuildContext context) =>
+      MediaQuery.of(context).size.width < smallScreenSize;
 
-  static bool isMediumScreen(double width) =>
-      width >= mediumScreenSize && width < largeScreenSize;
+  static bool isMediumScreen(BuildContext context) =>
+      MediaQuery.of(context).size.width >= mediumScreenSize &&
+      MediaQuery.of(context).size.width < largeScreenSize;
 
-  static bool isLargeScreen(double width) => width >= largeScreenSize;
+  static bool isLargeScreen(BuildContext context) =>
+      MediaQuery.of(context).size.width >= largeScreenSize;
 
-  static bool isCustumScreen(double width) =>
-      width >= mediumScreenSize && width <= customScreenSize;
+  static bool isCustumScreen(BuildContext context) =>
+      MediaQuery.of(context).size.width >= mediumScreenSize &&
+      MediaQuery.of(context).size.width <= customScreenSize;
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
         final double width = constraints.maxWidth;
-        if (isLargeScreen(width)) {
+        if (isLargeScreen(context)) {
           return largeScreen;
-        } else if (isMediumScreen(width)) {
+        } else if (isMediumScreen(context)) {
           return mediumScreen ?? largeScreen;
-        } else if (isCustumScreen(width)) {
+        } else if (isCustumScreen(context)) {
           return customScreen ?? largeScreen;
         } else {
           return smallScreen;
