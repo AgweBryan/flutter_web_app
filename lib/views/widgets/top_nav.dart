@@ -9,11 +9,16 @@ AppBar topNavigationBar(
           ? Row(
               children: [
                 Container(
-                  padding: EdgeInsets.only(
+                  margin: EdgeInsets.only(
                     left: 14,
                   ),
-                  child: Image.asset(
-                    'assets/my_logo.jpeg',
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    image: DecorationImage(
+                        image: AssetImage('assets/favicon.png'),
+                        fit: BoxFit.cover),
                   ),
                 ),
               ],
