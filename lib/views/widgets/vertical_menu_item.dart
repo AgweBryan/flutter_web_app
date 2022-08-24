@@ -27,33 +27,51 @@ class VerticalMenuItem extends StatelessWidget {
             color: menuController.isHovering(itemName)
                 ? lightGrey.withOpacity(.1)
                 : Colors.transparent,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
+            child: Row(
               children: [
-                SizedBox(
-                  width: width / 80,
+                Visibility(
+                  visible: menuController.isHovering(itemName) ||
+                      menuController.isActive(itemName),
+                  maintainSize: true,
+                  maintainState: true,
+                  maintainAnimation: true,
+                  child: Container(
+                    width: 6,
+                    height: 40,
+                    color: dark,
+                  ),
                 ),
-                Padding(
-                  padding: EdgeInsets.all(16),
-                  child: menuController.returnIconFor(itemName),
-                ),
-                !menuController.isActive(itemName)
-                    ? Flexible(
-                        child: CustomText(
-                          text: itemName,
-                          color: menuController.isHovering(itemName)
-                              ? dark
-                              : lightGrey,
-                        ),
-                      )
-                    : Flexible(
-                        child: CustomText(
-                          text: itemName,
-                          color: dark,
-                          size: 18,
-                          weight: FontWeight.bold,
-                        ),
+                Expanded(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SizedBox(
+                        width: width / 80,
                       ),
+                      Padding(
+                        padding: EdgeInsets.all(16),
+                        child: menuController.returnIconFor(itemName),
+                      ),
+                      !menuController.isActive(itemName)
+                          ? Flexible(
+                              child: CustomText(
+                                text: itemName,
+                                color: menuController.isHovering(itemName)
+                                    ? dark
+                                    : lightGrey,
+                              ),
+                            )
+                          : Flexible(
+                              child: CustomText(
+                                text: itemName,
+                                color: dark,
+                                size: 18,
+                                weight: FontWeight.bold,
+                              ),
+                            ),
+                    ],
+                  ),
+                ),
               ],
             ),
           )),
