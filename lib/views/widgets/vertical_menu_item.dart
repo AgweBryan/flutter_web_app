@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_app/constants/colors.dart';
 import 'package:flutter_web_app/constants/controllers.dart';
+import 'package:flutter_web_app/providers/responsive.dart';
 import 'package:flutter_web_app/views/widgets/custom_text.dart';
 import 'package:get/get.dart';
 
@@ -29,18 +30,6 @@ class VerticalMenuItem extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Visibility(
-                  visible: menuController.isHovering(itemName) ||
-                      menuController.isActive(itemName),
-                  maintainSize: true,
-                  maintainState: true,
-                  maintainAnimation: true,
-                  child: Container(
-                    width: 6,
-                    height: 40,
-                    color: dark,
-                  ),
-                ),
                 SizedBox(
                   width: width / 80,
                 ),

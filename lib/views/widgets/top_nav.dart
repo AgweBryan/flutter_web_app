@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_app/constants/colors.dart';
 import 'package:flutter_web_app/providers/responsive.dart';
 import 'package:flutter_web_app/views/widgets/custom_text.dart';
+import 'package:flutter_web_app/views/widgets/logo.dart';
 
 AppBar topNavigationBar(
         {required BuildContext context,
@@ -9,21 +10,7 @@ AppBar topNavigationBar(
     AppBar(
       leading: !Responsive.isSmallScreen(context)
           ? Row(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(
-                    left: 14,
-                  ),
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    color: Colors.transparent,
-                    image: DecorationImage(
-                        image: AssetImage('assets/favicon.png'),
-                        fit: BoxFit.cover),
-                  ),
-                ),
-              ],
+              children: [Logo()],
             )
           : IconButton(
               onPressed: () {
@@ -115,5 +102,5 @@ AppBar topNavigationBar(
       iconTheme: IconThemeData(
         color: dark,
       ),
-      backgroundColor: Colors.transparent,
+      backgroundColor: light,
     );

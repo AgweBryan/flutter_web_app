@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_app/providers/responsive.dart';
 import 'package:flutter_web_app/views/widgets/larg_screen.dart';
+import 'package:flutter_web_app/views/widgets/side_menu.dart';
 import 'package:flutter_web_app/views/widgets/small_screen.dart';
 import 'package:flutter_web_app/views/widgets/top_nav.dart';
 
@@ -14,7 +15,9 @@ class Layout extends StatelessWidget {
     return Scaffold(
       key: _scaffoldKey,
       appBar: topNavigationBar(context: context, key: _scaffoldKey),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: SideMenu(),
+      ),
       body: Responsive(
         largeScreen: LargeScreen(),
         smallScreen: SmallScreen(),
