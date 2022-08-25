@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_app/controllers/menu_controller.dart';
 import 'package:flutter_web_app/controllers/navigation_controller.dart';
-import 'package:flutter_web_app/views/screens/layout.dart';
+import 'package:flutter_web_app/routes/router.dart';
+import 'package:flutter_web_app/views/pages/layout.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -16,8 +17,10 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        title: 'Flutter Web App',
-        debugShowCheckedModeBanner: false,
-        home: Layout());
+      title: 'Flutter Web App',
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: generateRoute,
+      home: Layout(),
+    );
   }
 }
