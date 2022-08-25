@@ -14,6 +14,7 @@ class Layout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
+      extendBodyBehindAppBar: true,
       appBar: topNavigationBar(context: context, key: _scaffoldKey),
       drawer: Drawer(
         child: SideMenu(),
